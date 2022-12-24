@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         taskViewModel.name.observe(this) {
-            binding.TaskTitle.text = String.format("Task Title: %s", it)
+            binding.TaskTitle.text = String.format("Task Title:\n %s", it)
         }
 
         taskViewModel.desc.observe(this) {
-            binding.TaskDescription.text = String.format("Task Description: %s", it)
+            binding.TaskDescription.text = String.format("Task Description:\n %s", it)
         }
     }
 }
