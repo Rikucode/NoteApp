@@ -26,24 +26,34 @@
             android:backgroundTint="@android:color/transparent"/>
 
         <TextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/name"
             android:layout_gravity="center"
             android:layout_weight="1"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:text="@string/place_holder"
-            />
+            android:text="@string/place_holder" />
 
         <TextView
-            android:layout_marginHorizontal="5dp"
+            android:id="@+id/dueTime"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/dueTime"
-            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-            android:text="@string/place_holder"
-            />
+            android:layout_marginHorizontal="5dp"
+            android:text="@string/place_holder" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:contentDescription="@string/add_to_favourite"
+            android:id="@+id/favouriteButton"
+            android:layout_marginHorizontal="15dp"
+            android:src="@drawable/ic_baseline_star_outline_24"
+            android:backgroundTint="@android:color/transparent"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

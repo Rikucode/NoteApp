@@ -15,7 +15,7 @@ class TaskItemAdapter(
     }
 
     override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bindTaskItem(taskItems[position])
     }
 
     override fun getItemCount(): Int = taskItems.size

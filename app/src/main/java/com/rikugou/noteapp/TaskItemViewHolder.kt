@@ -8,4 +8,7 @@ class TaskItemViewHolder(
     private val context: Context,
     private val binding: TaskItemCellBinding
 ): RecyclerView.ViewHolder(binding.root) {
+    fun bindTaskItem(taskItem: TaskItem) {
+        binding.name.text = taskItem.name
+    }
 }
