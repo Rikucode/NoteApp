@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [TaskItem::class], version = 1, exportSchema = false)
 abstract class TaskItemDatabase: RoomDatabase()
 {
-    abstract fun taskItemDao(): taskItemDao
+    abstract fun taskItemDao(): TaskItemDao
 
     companion object
     {

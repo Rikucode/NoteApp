@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 @Entity(tableName = "task_item_table")
 class TaskItem (
@@ -19,11 +18,11 @@ class TaskItem (
     @PrimaryKey(autoGenerate = true) var id: Int = 0
 )
 {
-    fun completedDate() : LocalDate? = if (completedDateString == null) null
+    private fun completedDate() : LocalDate? = if (completedDateString == null) null
         else LocalDate.parse(completedDateString, dateFormatter)
 
     fun dueTime() : LocalTime? = if (dueTimeString == null) null
-    else LocalTime.parse(dueTimeString, timeFormatter)
+        else LocalTime.parse(dueTimeString, timeFormatter)
 
     fun isCompleted() = completedDate() != null
     fun imageResource(): Int = if (isCompleted()) R.drawable.ic_baseline_check_circle_outline_24 else R.drawable.ic_baseline_radio_button_unchecked_24

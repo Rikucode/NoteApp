@@ -1,18 +1,14 @@
 package com.rikugou.noteapp
 
 import android.app.TimePickerDialog
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.rikugou.noteapp.databinding.FragmentNewTaskSheetBinding
-import java.sql.Time
 import java.time.LocalTime
 
 class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
@@ -78,10 +74,13 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
         val dueTimeString = if (dueTime == null) null else TaskItem.timeFormatter.format(dueTime)
 
         if (taskItem == null) {
-            val newTask = TaskItem(name, desc, dueTime, null)
+            val newTask = TaskItem(name, desc, dueTimeString, null)
             taskViewModel.addTaskItem(newTask)
         } else {
-          taskViewModel.updateTaskItem(taskItem!!)
+            taskItem!!.name = name
+            taskItem!!.desc = desc
+            taskItem!!.dueTimeString = dueTimeString
+            taskViewModel.updateTaskItem(taskItem!!)
         }
         binding.name.setText("")
         binding.desc.setText("")
