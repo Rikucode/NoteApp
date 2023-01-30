@@ -1,5 +1,6 @@
 package com.rikugou.noteapp
 
+import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.Editable
@@ -17,12 +18,13 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
     private lateinit var taskViewModel: TaskViewModel
     private var dueTime : LocalTime? = null
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity()
 
         if (taskItem != null) {
-            binding.taskTitle.text = "Edit Task"
+            binding.taskTitle.text = "Edit Note"
             val editable = Editable.Factory.getInstance()
             binding.name.text = editable.newEditable(taskItem!!.name)
             binding.desc.text = editable.newEditable(taskItem!!.desc)
@@ -31,7 +33,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
                 updateTimeButtonText()
             }
         } else {
-            binding.taskTitle.text = "New Task"
+            binding.taskTitle.text = "New Note"
         }
 
         taskViewModel = ViewModelProvider(activity).get(TaskViewModel::class.java)
@@ -64,7 +66,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment() {
             updateTimeButtonText()
         }
         val dialog = TimePickerDialog(activity, listener, dueTime!!.hour, dueTime!!.minute, true)
-        dialog.setTitle("Choose time")
+        dialog.setTitle("Choose Time")
         dialog.show()
     }
 

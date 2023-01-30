@@ -9,14 +9,15 @@
 
     <TextView
         android:id="@+id/taskTitle"
-        android:layout_width="match_parent"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="206dp"
         android:layout_height="wrap_content"
-        android:text="New Task"
-        android:textSize="30sp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
+        android:text="@string/new_note"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
-        style="@style/TextAppearance.AppCompat.Title"/>
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
